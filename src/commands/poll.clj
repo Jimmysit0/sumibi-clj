@@ -17,8 +17,11 @@
   (let [{:keys [id token data]} event-data
         {:keys [options]} data
         {:keys [value]} (first options)
-        response-text (str ":bar_chart:" " **"value"**")]
-    (discord-rest/create-interaction-response! rest-conn id token 4 :data {:content response-text})))
+        response-text (str ":bar_chart:" " **"value"**")
+        success? (deref (discord-rest/create-interaction-response! rest-conn id token 4 :data {:content response-text}))
+        message-id (if success? (:id (deref (discord-rest/get-original-interaction-response! rest-conn (:application-id config) token))))]
+    (if message-id
+      (doseq [emoji-id ["👍" "👎" "🤷"]]
+        (discord-rest/create-reaction! rest-conn (:channel-id event-data) message-id emoji-id)))))
 
-;; TODO: Get reactions done!!!!!!!
-
+                                                                                                             

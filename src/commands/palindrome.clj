@@ -25,4 +25,3 @@
                         (str "Your original input was: `" value "`, so your reversed input is: " "`"(str/reverse value)"`." " That message is a palindrome!")
                         (str "Your original input was: `" value "`, so your reversed input is: " "`"(str/reverse value)"`." " That message is not a palindrome... :("))]
     (discord-rest/create-interaction-response! rest-conn id token 4 :data {:content response-text})))
-

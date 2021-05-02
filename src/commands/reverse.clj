@@ -19,4 +19,3 @@
         {:keys [value]} (first options)
         response-text (str "Your original input was: `" value "`, so your reversed input is: " "`"(str/reverse value)"`")]
     (discord-rest/create-interaction-response! rest-conn id token 4 :data {:content response-text})))
-
