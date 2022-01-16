@@ -1,5 +1,7 @@
 # sumibi
 
+sumibi-clj has been archived and the development has been completely moved to https://github.com/Jimmysit0/robot. The code seen in this repository is very messy and unstable, it should be completely ignored.
+
 A simple Discord bot writen in Clojure, with slash commands!
 
 ## Usage
